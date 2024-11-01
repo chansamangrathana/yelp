@@ -22,6 +22,6 @@ public class Category {
     private String icon;
 
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
-    private Category parentCategory;
+    private Category Categorys;
 
 }

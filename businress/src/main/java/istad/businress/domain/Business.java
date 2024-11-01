@@ -23,11 +23,11 @@ public class Business  {
 
     private String alias;
 
-    private String imageUrl;
+    private String image;
 
     private String rating;
 
-    private String price; // $, $$, $$$, $$$$
+    private String price;
 
     private Integer reviewCount;
 
@@ -41,7 +41,6 @@ public class Business  {
 
     private Boolean isClaimed;
 
-    private Boolean isOpening24Hours;
 
     @OneToMany
     private List<Category> categories;
@@ -54,12 +53,15 @@ public class Business  {
             joinColumns = @JoinColumn(name = "business_id"),
             inverseJoinColumns = @JoinColumn(name = "transactions_id")
     )
-    private List<Transaction> transactions; // pickup, delivery and restaurant_reservation.
-
+    private List<Transaction> transactions;
 
 
     @OneToMany
-    private List<OpeningHour> openHours; // list of open hours for each day of the week.
+    private List<OpeningHour> openHours;
+
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
 
 
 
